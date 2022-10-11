@@ -1,4 +1,6 @@
 ﻿import React, { useEffect, useState } from 'react';
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import Customer from './Customer';
 
 function Customers() {
 
@@ -23,10 +25,17 @@ function Customers() {
 
     return ( 
         <div>
+            <Link to="/customer">
+               Add Customer
+            </Link>
+           
             <h4>All customer</h4>
             <p>What time each want to have service</p>
             <div>{content}</div>
         </div>
+       
+
+
     )
 
     function RenderAllcustomers({ customers } ) {
@@ -53,7 +62,10 @@ function Customers() {
                                 <td>{customer.serviceTime ? new Date(customer.serviceTime).toLocaleDateString() :
                                     '-'}</td>
                                 <td>
-                                    -
+                                    <div className=" form-group">
+                                        <button className="btn btn-primary">Update</button>
+                                        <button className="btn btn-danger">Delete</button>
+                                    </div>
                                    
                                 </td>
                             </tr>
